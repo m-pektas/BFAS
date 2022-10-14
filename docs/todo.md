@@ -3,7 +3,7 @@
 You can see our development plan and open tasks for this project.
 
 
-### V1.0.*
+### V0.0.1
 *In this progress, We try to obtain minimum valueble version (mvv) of the project.*
 
 - [X] Log computer and harware informations.
@@ -20,7 +20,7 @@ You can see our development plan and open tasks for this project.
 
 
 
-### V1.1.*
+### Next version
 *In this progress, we try to improve our mvv with adding new useful features.*
 
 - [] Add classifier training and report acc as a metric.

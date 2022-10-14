@@ -11,8 +11,8 @@ pip install .
 
 ```bash
 cd BFAS
-docker build . -f bfas/env/Dockerfile -t bfas:v1.0.0
-docker run -it -v ${PWD}:/app bfas:v1.0.0 
+docker build . -f bfas/env/Dockerfile -t bfas:v0.0.1
+docker run -it -v ${PWD}:/app bfas:v0.0.1
 ```
 
 # How can I use BFAS ?
