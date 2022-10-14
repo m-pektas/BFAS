@@ -6,7 +6,7 @@ with open('bfas/env/requirements.txt') as f:
 
 setup(
     name='bfas',
-    version='0.0.1',
+    version='0.0.3',
     author='Muhammed Pektas',
     description='Brute Force Architecture Search',
     long_description='Brute Force Architecture Search for Neural Architectures to obtain models that have best performences on your device.',
@@ -15,6 +15,6 @@ setup(
     python_requires='>=3.7, <4',
     install_requires=required,
     packages=find_packages(),
-    package_data={'bfas/archs': ['*.json'],'bfas/env':['*.txt']},
+    package_data={p: ["*"] for p in find_packages()},
     include_package_data=True,
 )
