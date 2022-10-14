@@ -1,0 +1,37 @@
+name: Python package
+
+on:
+  pull_request:
+    branches:    
+      - main
+    types: [opened, reopened]
+
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "macos-latest"]
+        python-version: ["3.8","3.9"]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: ls bfas/env/
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r bfas/env/requirements.txt
+      - run: pytest
+
+

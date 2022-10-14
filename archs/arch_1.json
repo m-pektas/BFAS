@@ -1,0 +1,7 @@
+{
+  "linear1_out": {
+    "type" : "range",
+    "range" : [1, 1000],
+    "step" : 10
+  }
+}

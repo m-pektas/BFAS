@@ -1,0 +1,7 @@
+torchvision
+thop
+wandb
+tensorboard
+tqdm
+py-cpuinfo
+pytest

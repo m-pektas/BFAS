@@ -1,0 +1,32 @@
+{
+    "linear1_out": {
+      "type" : "range",
+      "range" : [1, 1000],
+      "step" : 10
+    }, 
+    "linear2_out": {
+      "type" : "range",
+      "range" : [1, 500],
+      "step" : 10
+    },
+    "dropout1_p": {
+      "type": "range",
+      "range" : [0.1, 0.55],
+      "step" : 0.1
+    },
+    "dropout2_p": {
+        "type" : "range",
+        "range" : [0.1, 0.3],
+        "step" : 0.1
+    },
+    "num_classes": {
+      "type" : "array",
+      "values":[10]
+    },
+    "classifier_option":{
+        "type" : "array",
+        "values":[1,2]
+    }
+
+  
+  }
