@@ -11,16 +11,15 @@ Brute Force Architecture Search
 
 ## Usage
 
-1. **Create your files.**
+1. **Create your files**
 
 <p align="left">
 <img src="assets/tree-min.png" width="20%" >
 </p>
 
 
-2. **Install BFAS.**
+2. **Install BFAS with pip**
 ```
-# from pypi
 pip install bfas
 ```
 
