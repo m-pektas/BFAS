@@ -9,6 +9,44 @@ Brute Force Architecture Search
 
 <br>
 
+## Usage
+
+1. **Create your files.**
+
+<p align="left">
+<img src="assets/tree-min.png" width="20%" >
+</p>
+
+
+2. **Install BFAS.**
+```
+# from pypi
+pip install bfas
+```
+
+3. **Run**
+
+```python
+#app.py
+from bfas import BFAS
+from bfas.utils.data_types import *
+
+bfas = BFAS(project_name="bfas",
+            archname="mobilenetv2_custom",
+            archs_dir = "archs",
+            device="cpu",
+            logger_name="tensorboard",
+            is_logging_active=True,
+            seed=28,
+            )
+
+bfas.rules.addRule(Rule(Metrics.FPS, Limit.MIN, 1))
+bfas.rules.addRule(Rule(Metrics.PARAMCOUNT, Limit.MAX, 10))
+bfas.run(iter_count=5)
+```
+
+
+
 ## Description
 
 1. **Architecture file (archname.py)**
