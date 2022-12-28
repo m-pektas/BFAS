@@ -13,15 +13,16 @@ You can see our development plan and open tasks for this project.
 - [X] CI/CD Add git action for running unit tests for each push and pull request commands.
 - [X] Add cpu/gpu option. 
 - [X] Add seed setting for reproduce same experiments or increasing diversity of experiments on different devices.
-- [] Convert project to PyPI package
+- [X] Convert project to PyPI package
     - [X] Package the project
-    - [] Make public the project 
-    - [] Upload to PyPI
+    - [X] Make public the project 
+    - [X] Upload to PyPI
 
 
 
-### Next version
+### TODOs for Next versions
 *In this progress, we try to improve our mvv with adding new useful features.*
 
 - [] Add classifier training and report acc as a metric.
 - [] Add grid search strategy.
+- [] Add profiler for model analysis.
