@@ -131,3 +131,4 @@ log
 .vscode
 .bash_history
 .DS_Store
+data/*

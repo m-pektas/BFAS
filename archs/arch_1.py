@@ -25,7 +25,7 @@ if __name__ == "__main__":
     params = {
         "linear1_out" : 120,
         "linear2_out" : 84,
-        "n_class" : 10
+        "n_class" : 1000
     }
 
     net = Net(params)

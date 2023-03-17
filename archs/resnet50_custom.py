@@ -5,7 +5,7 @@ import torch.nn as nn
 class Net(nn.Module):
     def __init__(self, args: dict):
         super().__init__()
-        self.mobilenet = models.mobilenet_v2(weights=models.MobileNet_V2_Weights.IMAGENET1K_V2)
+        self.mobilenet = models.resnet50(weights=models.ResNet50_Weights.IMAGENET1K_V2)
         
         
         classifier_option_1 = nn.Sequential(nn.Linear(1280, args["linear1_out"]),

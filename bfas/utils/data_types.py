@@ -11,6 +11,8 @@ class Metrics(Enum):
     GMAC =  "gmac"
     PARAMCOUNT = "param_count"
     FPS = "fps"
+    LOSS = "loss"
+    ACC = "acc"
 
 class SearchStrategy(Enum):
     GRID =  auto()

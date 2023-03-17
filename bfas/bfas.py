@@ -3,13 +3,29 @@ from .archs import ArchFactory
 from .utils.data_types import *
 from . import utils
 from tqdm import tqdm
+from .training.trainer import Trainer
 
 class BFAS:
     """
     Brute Force Architecture Search class
     """
 
-    def __init__(self, project_name: str, archname: str, device: str, archs_dir : str, seed: int = None, logger_name : str = "wandb", is_logging_active=True, log_dir : str = "log") -> None:
+    def __init__(self, project_name: str,
+                       archname: str, 
+                       device: str, 
+                       archs_dir : str, 
+                       seed: int = None, 
+                       logger_name : str = "wandb",
+                       is_logging_active=True,
+                       log_dir : str = "log",
+                       is_training_active : bool = False,
+                       dataset : str = "mnist",
+                       batch_size : int = 32,
+                       test_step : int = 20,
+                       train_step : int = 100,
+                       
+                       
+                       ) -> None:
         """
         project_name: The name of the project.
         archname: The name of the architecture files. It have to same with archname of archs/archname.json and archs/archname.py.
@@ -31,8 +47,15 @@ class BFAS:
         self.metaArch = self.archfactory.createMetaArch(archname)
         self.project_info = self.getProjectInfo()
         self.log = utils.logging.Log(self.project_info, logger_name, is_logging_active, log_dir)
+        self.is_training_active = is_training_active
+        self.dataset = dataset
+        self.batch_size = batch_size
+        self.test_step = test_step
+        self.train_step = train_step
 
-   
+
+
+        
 
     def run(self, iter_count: int):
         """ 
@@ -46,15 +69,27 @@ class BFAS:
             param = self.metaArch.getParams()
             model = self.metaArch.getModel(param, self.device)
 
+            
+   
             # measure other metrics
             fps = utils.complexity.getFPS(model, model.input_producer(), 5)
             gmacs, params = utils.complexity.getComplexityMetrics(model)
-            
+
             metrics = {
                 Metrics.FPS.value: fps,
                 Metrics.PARAMCOUNT.value: params,
                 Metrics.GMAC.value: gmacs,
             }
+
+            # train and test model
+            if self.is_training_active:
+                trainer = Trainer(model, self.dataset, self.batch_size, self.device)
+                trainer.train(self.train_step)
+                loss, acc = trainer.test(self.test_step)
+            
+                metrics[Metrics.LOSS.value] = loss
+                metrics[Metrics.ACC.value] = acc
+               
 
             # if my rules is satisfied, log the results to logger.
             if self.rules.checkRules(metrics):
