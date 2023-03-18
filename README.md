@@ -61,21 +61,28 @@ This file contains information about your variables that in your neural network.
 In this file, you can create your bfas experiments. It contains codes like;
 
 ```python
+
 from bfas import BFAS
 from bfas.utils.data_types import *
 
 bfas = BFAS(project_name="bfas",
-            archname="mobilenetv2_custom",
+            archname="resnet50_custom",
             archs_dir = "archs",
-            device="cpu",
-            logger_name="tensorboard",
+            device="mps",
+            logger_name="wandb",
             is_logging_active=True,
-            seed=28,
+            seed=25,
+            is_training_active=True,
+            dataset="cifar10",
+            batch_size=16,
+            test_step=5,
+            train_step=50,
             )
 
-bfas.rules.addRule(Rule(Metrics.FPS, Limit.MIN, 1))
-bfas.rules.addRule(Rule(Metrics.PARAMCOUNT, Limit.MAX, 10))
-bfas.run(iter_count=5)
+bfas.rules.addRule(Rule(Metrics.FPS, Limit.MIN, 20))
+bfas.rules.addRule(Rule(Metrics.PARAMCOUNT, Limit.MIN, 20))
+bfas.run(iter_count=10)
+
 ```
 Here, We import the BFAS module and related data_types such as Rule, FPS metric etc. After that, We create BFAS object with necessarly arguments. Then, We add the rules for "brute force architecture search" process. If the model can suitable to our rules, we can add this model and their parameter to our logs. This rule adding step is optional. If you don't add any rule, all resulst are going to save to logs. The last operation is run the experiments. You can set iteration count before the running the experiment.
 

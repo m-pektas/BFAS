@@ -5,3 +5,4 @@ tensorboard
 tqdm
 py-cpuinfo
 pytest
+ptflops
