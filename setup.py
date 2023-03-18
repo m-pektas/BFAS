@@ -6,7 +6,7 @@ with open('bfas/env/requirements.txt') as f:
 
 setup(
     name='bfas',
-    version='0.0.3',
+    version='0.0.4',
     author='Muhammed Pektas',
     description='Brute Force Architecture Search',
     long_description='Brute Force Architecture Search for Neural Architectures to obtain models that have best performences on your device.',
