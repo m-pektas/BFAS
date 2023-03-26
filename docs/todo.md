@@ -23,6 +23,6 @@ You can see our development plan and open tasks for this project.
 ### TODOs for Next versions
 *In this progress, we try to improve our mvv with adding new useful features.*
 
-- [] Add classifier training and report acc as a metric.
+- [X] Add classifier training and report acc as a metric.
 - [] Add grid search strategy.
 - [] Add profiler for model analysis.
