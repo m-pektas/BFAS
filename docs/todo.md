@@ -26,3 +26,4 @@ You can see our development plan and open tasks for this project.
 - [X] Add classifier training and report acc as a metric.
 - [] Add grid search strategy.
 - [] Add profiler for model analysis.
+- [] Add model save support.
